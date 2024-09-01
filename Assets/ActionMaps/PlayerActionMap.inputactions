@@ -103,6 +103,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Debugging",
+            "id": "3d7ea6a6-4b33-474d-a7b7-2bc57f579019",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "269f8a4e-47f0-4ec3-81fb-755d0ba572fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "049e62a7-e02d-4abd-9674-5098a64997ba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "110b3077-b066-4131-bf38-cf5abfb0df04",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a727b7d-3cdb-4097-a63c-e9a55a2431a4",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

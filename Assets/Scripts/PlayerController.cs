@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float shootTimer;
     [SerializeField] private float ShootTimerMax = .8f;
     bool holding;
-
+    SoundManager SM;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,19 +29,17 @@ public class PlayerController : MonoBehaviour
         shoot.canceled += Shoot_canceled;
         rigidBody2D = GetComponent<Rigidbody2D>();
         shootTimer = ShootTimerMax;
+        SM = FindObjectOfType<SoundManager>();
     }
-
     private void Shoot_canceled(InputAction.CallbackContext obj)
     {
         holding = false;
     }
-
     private void Shoot_started(InputAction.CallbackContext obj)
     {
         SpawnBullet();
         holding = true;
     }
-
     private void OnDestroy()
     {
         StopListening();
@@ -59,12 +55,10 @@ public class PlayerController : MonoBehaviour
     {
         moving = false;
     }
-
     private void Move_started(InputAction.CallbackContext obj)
     {
         moving = true;
     }
-
     private void FixedUpdate()
     {
         if (moving)
@@ -76,11 +70,11 @@ public class PlayerController : MonoBehaviour
             rigidBody2D.velocity = Vector2.zero;
         }
     }
-
     void SpawnBullet()
     {
         Instantiate(ExplosionPrefab, BulletSpawn.transform);
         Instantiate(BulletPrefab, BulletSpawn.transform);
+        AudioSource.PlayClipAtPoint(SM.TankShoot1, gameObject.transform.position);
     }
     // Update is called once per frame
     void Update()
